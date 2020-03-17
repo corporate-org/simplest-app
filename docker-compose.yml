@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  simplest-app:
+    build: .
+
+    expose:
+      - "8080"

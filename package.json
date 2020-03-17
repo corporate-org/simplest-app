@@ -1,0 +1,22 @@
+{
+  "name": "simplest-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corporate-org/simplest-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corporate-org/simplest-app/issues"
+  },
+  "homepage": "https://github.com/corporate-org/simplest-app#readme",
+  "dependencies": {
+    "http-server": "^0.12.1"
+  }
+}
