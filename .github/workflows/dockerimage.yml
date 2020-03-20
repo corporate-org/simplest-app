@@ -18,7 +18,7 @@ jobs:
         echo Branch: ${GITHUB_REF##*/}
         echo ::set-output name=COMMIT::${GITHUB_SHA}
         echo ::set-output name=BRANCH::${GITHUB_REF##*/}
-  
+
     - name: Publish image to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
@@ -27,10 +27,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: ${{ env.DOCKER_REGISTRY }}
         tags: "latest,${{ steps.get_version.outputs.COMMIT }}"
-        
+
     - name: Notify Humanitec
       run: |
         echo "Notifying humanitec about new push for ${GITHUB_REPOSITORY}"
-        echo curl -H "Content-Type:application/json" -d "{\"commit\":\"${GITHUB_SHA}\",\"branch\":\"${GITHUB_REF##*/}\",\"tags\":[],\"image\":\"registry.walhall.io/${GITHUB_REPOSITORY}:${GITHUB_SHA}\"}" "https://dev-api.walhall.io/orgs/${GITHUB_REPOSITORY%/*}/modules/${GITHUB_REPOSITORY#*/}/builds"
-        curl -H "Content-Type:application/json" -d "{\"commit\":\"${GITHUB_SHA}\",\"branch\":\"${GITHUB_REF##*/}\",\"tags\":[],\"image\":\"registry.walhall.io/${GITHUB_REPOSITORY}:${GITHUB_SHA}\"}" "https://dev-api.walhall.io/orgs/${GITHUB_REPOSITORY%/*}/modules/${GITHUB_REPOSITORY#*/}/builds"
-        
+        curl -s -w "%{http_code}" -H "Content-Type:application/json" -d "{\"commit\":\"${GITHUB_SHA}\",\"branch\":\"${GITHUB_REF##*/}\",\"tags\":[],\"image\":\"${DOCKER_REGISTRY}/${GITHUB_REPOSITORY}:${GITHUB_SHA}\"}" "https://dev-api.walhall.io/orgs/${GITHUB_REPOSITORY%/*}/modules/${GITHUB_REPOSITORY#*/}/builds"
