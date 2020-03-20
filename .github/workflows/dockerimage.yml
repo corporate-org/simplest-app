@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 env:
-  DOCKER_REGISTRY: registry.walhall.io
+  DOCKER_REGISTRY: registry-dev.walhall.io
 
 jobs:
   build:
