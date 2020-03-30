@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Humanitec
-      uses: humanitec/build-push-to-humanitec@master
+      uses: humanitec/build-push-to-humanitec@v1
       with:
         humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
         organization: chris-test-org
