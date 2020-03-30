@@ -22,7 +22,7 @@ jobs:
 
 
     - name: Humanitec
-      uses: corporate-org/build-push-to-humanitec
+      uses: corporate-org/build-push-to-humanitec@master
       with:
         humanitec-token: test
         organization: chris-test-org
