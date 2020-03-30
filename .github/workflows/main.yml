@@ -24,8 +24,8 @@ jobs:
     - name: Humanitec
       uses: corporate-org/build-push-to-humanitec@master
       with:
-        humanitec-token: test
+        humanitec-token: ${{ secrets.HUMANITEC_TOKEN }}
         organization: chris-test-org
-        module-name: test-module-01
+        module-name: test-module-02
         humanitec-registry: dev-registry.humanitec.io
         humanitec-api: dev-api.humanitec.io
