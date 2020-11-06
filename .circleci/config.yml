@@ -1,0 +1,9 @@
+version: 2.1
+orbs:
+  humanitec: humanitec/humanitec@volatile
+workflows:
+  build-push-and-notify-humanitec:
+    jobs:
+      - humanitec/build-push-and-notify-humanitec:
+          organization: humanitec-demo
+          humanitec_api: https://staging-api.humanitec.io
