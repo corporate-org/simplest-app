@@ -6,4 +6,3 @@ workflows:
     jobs:
       - humanitec/build-push-and-notify-humanitec:
           organization: humanitec-demo
-          humanitec_api: https://staging-api.humanitec.io
